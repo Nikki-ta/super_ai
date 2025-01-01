@@ -49,57 +49,85 @@ const App = () => {
       </header>
 
       <div className="query-box-container">
-        <div className="text-g">
-          Enter a query below. To get started, upload a CSV file containing your
-          data for analysis. This allows the system to process your dataset,
-          enabling you to retrieve insights and run customized queries
-          efficiently!
-        </div>
+  <div className="text-g">
+    Enter a query below. To get started, upload a CSV file containing your
+    data for analysis. This allows the system to process your dataset,
+    enabling you to retrieve insights and run customized queries
+    efficiently!
+  </div>
 
-        <div className="query-input-box">
-          <textarea
-            placeholder="Enter your query here..."
-            className="query-input"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          ></textarea>
-          <div className="bottom-section">
-            <div className="file-upload">
-              <label htmlFor="file-upload-input" className="upload-btn">
-                Upload File
-              </label>
-              <input
-                type="file"
-                id="file-upload-input"
-                multiple
-                accept=".csv"
-                style={{ display: "none" }}
-                onChange={(e) => {
-                  const uploadedFiles = Array.from(e.target.files);
-                  setFiles(uploadedFiles); // Update state with the uploaded files
-                  setFileName(
-                    uploadedFiles.map((file) => file.name).join(", ")
-                  ); // Display file names
-                }}
-              />
-              <span className="file-name">
-                {fileName || "No file selected"}
-              </span>
-            </div>
-            <button className="send-btn" onClick={executeQuery}>
-              <span className="arrow">➔</span>
-            </button>
-          </div>
+  <div className="query-input-box">
+    <textarea
+      placeholder="Enter your query here..."
+      className="query-input"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    ></textarea>
+    <div className="bottom-section">
+      <div className="file-upload">
+        <div className="dow">
+        <label htmlFor="file-upload-input" className="upload-btn">
+        <i class='bx bx-upload do' ></i>&nbsp;
+          Upload File
+        </label>
         </div>
-
-        {/* Loader */}
-        {loading && (
-          <div className="loader-container">
-            <div className="loader"></div>
-            <p>Loading results...</p>
-          </div>
-        )}
+        <input
+          type="file"
+          id="file-upload-input"
+          multiple
+          accept=".csv"
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const uploadedFiles = Array.from(e.target.files);
+            setFiles(uploadedFiles); // Update state with the uploaded files
+            setFileName(
+              uploadedFiles.map((file) => file.name).join(", ")
+            ); // Display file names
+          }}
+        />
+        <span className="file-name">
+          {fileName || "No file selected"}
+        </span>
       </div>
+      <button className="send-btn" onClick={executeQuery}>
+        <span className="arrow">➔</span>
+      </button>
+    </div>
+  </div>
+
+  {/* Loader */}
+  {loading && (
+    <div className="loader-container">
+      <div className="loader"></div>
+      <p>Loading results...</p>
+    </div>
+  )}
+
+  {/* Conditional rendering for Download CSV */}
+  {results && results.length > 0 && (
+    <button
+      className="down"
+      onClick={() => {
+        const csvContent =
+          "data:text/csv;charset=utf-8," +
+          [columnNames.join(","), ...results.map((row) => row.join(","))].join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "query_results.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }}
+    >
+      <div className="dow">
+      <i class='bx bxs-download do'></i>
+      <p>Download CSV</p>
+      </div>
+    </button>
+  )}
+</div>
+
 
       {error && <p className="error">{error}</p>}
       {results.length > 0 && (

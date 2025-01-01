@@ -252,6 +252,27 @@ button.execute-button:hover {
   background-color: #444;
 }
 
+.down{
+  margin-top: 15px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  font-size: 12px;
+}
+
+.do{
+  color:white;
+  font-size: 13px;
+}
+.dow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+}
 table {
   width: 80%;
   margin: 20px auto;

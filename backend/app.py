@@ -53,7 +53,7 @@ def natural_language_to_sql(natural_query, table_name):
     # Clean up any additional spaces or unwanted characters
     sql_query = re.sub(r"\s+", " ", sql_query)  # Replace multiple spaces with a single space
     sql_query = sql_query.strip()  # Remove leading/trailing spaces
-
+    sql_query = re.sub(r"(\b\w+\b)\s*=\s*'(.*?)'", lambda m: f"LOWER({m.group(1)}) = LOWER('{m.group(2)}')", sql_query)
 
     return sql_query
 

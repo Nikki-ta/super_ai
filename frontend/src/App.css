@@ -280,20 +280,59 @@ button.execute-button:hover {
   gap: 4px;
 }
 table {
-  width: 80%;
+  width: 100%; /* Set table width to 100% for smaller screens */
   margin: 20px auto;
   border-collapse: collapse;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  display: block; /* Ensure the table behaves like a block element for scrolling */
 }
 
 th, td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
+  word-wrap: break-word; /* Allow content to wrap for narrow cells */
 }
 
 th {
   background-color: #f4f4f4;
+}
+
+@media (max-width: 768px) {
+  th, td {
+    padding: 8px; /* Reduce padding on small screens */
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  th {
+    background-color: #eaeaea; /* Slightly darker header for better contrast */
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    font-size: 12px; /* Reduce overall font size on very small screens */
+  }
+
+  th, td {
+    display: block; /* Make each cell a block element */
+    width: 100%; /* Make cells take full width */
+    text-align: right; /* Align text for better layout */
+    position: relative;
+  }
+
+  th::after {
+    content: ':'; /* Add a colon after header labels */
+    position: absolute;
+    left: 0;
+  }
+
+  tr {
+    display: flex; /* Display rows as flex for better stacking */
+    flex-direction: column; /* Stack cells vertically */
+    margin-bottom: 10px; /* Add spacing between rows */
+  }
 }
 
 .error {

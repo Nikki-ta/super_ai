@@ -404,7 +404,7 @@ th {
 }
 
 body {
-  overflow-y: scroll; /* Enable vertical scrolling */
+  overflow: scroll; /* Enable vertical scrolling */
 }
 
 body::-webkit-scrollbar {

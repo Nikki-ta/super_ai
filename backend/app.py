@@ -6,7 +6,7 @@ import re
 import os
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app,origins="https://superai-pi.vercel.app/")  # Enable CORS for all routes
 UPLOAD_FOLDER = './uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the upload directory exists
 

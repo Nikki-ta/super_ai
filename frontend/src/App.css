@@ -210,6 +210,7 @@ input:checked + .slider:before {
   justify-content: center;
   cursor: pointer;
   margin-left: 10px;
+  flex-shrink: 0; /* Prevents the button from shrinking */
 }
 
 .send-btn .arrow {
@@ -224,6 +225,8 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  min-width: 0; /* Prevents flex container from overflowing */
+  flex-grow: 1; /* Allows the file-upload to take available space */
 }
 
 .file-upload label {
@@ -304,6 +307,8 @@ th {
   align-items: center;
   margin-top: 10px;
   margin-left: 8px;
+  gap: 8px; /* Adds spacing between elements */
+  flex-wrap: nowrap; /* Prevents wrapping */
 }
 
 .file-upload {

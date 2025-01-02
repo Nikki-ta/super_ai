@@ -290,7 +290,7 @@ table {
     width: 110%;
     margin-top: 40px;
     margin-left: -11px;
-    margin-right: 20px;
+    padding: 5px;
 }
 
 th, td {

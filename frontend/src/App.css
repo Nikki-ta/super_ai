@@ -279,61 +279,57 @@ button.execute-button:hover {
   align-items: center;
   gap: 4px;
 }
+
+
 table {
-  width: 100%; /* Set table width to 100% for smaller screens */
+  width: 100%;
   margin: 20px auto;
   border-collapse: collapse;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow-x: auto; /* Enable horizontal scrolling for small screens */
-  display: block; /* Ensure the table behaves like a block element for scrolling */
+  display: block; /* Allow the table to be scrollable */
 }
 
 th, td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  word-wrap: break-word; /* Allow content to wrap for narrow cells */
+  word-wrap: break-word; /* Prevent overflow by wrapping content */
 }
 
 th {
   background-color: #f4f4f4;
+  position: sticky; /* Keep headers visible on horizontal scrolling */
+  top: 0;
+  z-index: 2; /* Ensure headers are above other content */
 }
 
 @media (max-width: 768px) {
-  th, td {
-    padding: 8px; /* Reduce padding on small screens */
-    font-size: 14px; /* Adjust font size for better readability */
+  table {
+    font-size: 14px; /* Adjust font size for readability */
   }
 
-  th {
-    background-color: #eaeaea; /* Slightly darker header for better contrast */
+  th, td {
+    padding: 8px; /* Reduce padding for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   table {
-    font-size: 12px; /* Reduce overall font size on very small screens */
+    font-size: 12px; /* Further reduce font size for very small screens */
   }
 
   th, td {
-    display: block; /* Make each cell a block element */
-    width: 100%; /* Make cells take full width */
-    text-align: right; /* Align text for better layout */
-    position: relative;
-  }
-
-  th::after {
-    content: ':'; /* Add a colon after header labels */
-    position: absolute;
-    left: 0;
-  }
-
-  tr {
-    display: flex; /* Display rows as flex for better stacking */
-    flex-direction: column; /* Stack cells vertically */
-    margin-bottom: 10px; /* Add spacing between rows */
+    padding: 6px; /* Reduce padding for better fit */
   }
 }
+
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Add horizontal scrolling for the container */
+}
+
+
 
 .error {
   color: red;

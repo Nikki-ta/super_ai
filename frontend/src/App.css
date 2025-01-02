@@ -287,7 +287,6 @@ table {
     display: block;
     margin: 20px auto;
     overflow-x: auto;
-    width: 110%;
     margin-top: 40px;
     margin-left: -11px;
 }
@@ -309,6 +308,7 @@ th {
 @media (max-width: 768px) {
   table {
     font-size: 14px; /* Adjust font size for readability */
+    width: 110%;
   }
 
   th, td {
@@ -319,6 +319,7 @@ th {
 @media (max-width: 480px) {
   table {
     font-size: 12px; /* Further reduce font size for very small screens */
+    width: 110%;
   }
 
   th, td {

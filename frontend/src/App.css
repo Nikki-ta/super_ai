@@ -2,6 +2,8 @@
   text-align: center;
   font-family: Arial, sans-serif;
   margin: 20px;
+  box-sizing: border-box;
+  padding: 27px;
 }
 
 .gap-3 {
@@ -363,4 +365,23 @@ th {
   width: 100px; /* Adjust as needed */
   height: auto;
   margin-bottom: 10px;
+}
+
+@media (max-width: 768px){
+  .query-box-container{
+    padding : 14px;
+  }
+}
+
+body {
+  overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+
+/* For Safari (fallback approach) */
+body {
+  -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on touch devices */
 }

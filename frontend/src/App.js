@@ -22,7 +22,7 @@ const App = () => {
     formData.append("query", query);
 
     try {
-      const response = await axios.post("http://localhost:5000/query", formData);
+      const response = await axios.post("https://demo-i7xv.onrender.com/query", formData);
       const { columns, results } = response.data;
       setResults(results || []);
       setColumnNames(columns || []);

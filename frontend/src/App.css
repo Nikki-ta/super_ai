@@ -370,7 +370,32 @@ th {
 @media (max-width: 768px){
   .query-box-container{
     padding : 14px;
+    margin: -12px;
+    margin-top:3px;
   }
+  .query-input{
+    overflow-y: scroll; /* Enable vertical scrolling */
+    font-size: 14px;
+}
+
+.query-input::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+
+/* For Safari (fallback approach) */
+.query-input {
+  -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on touch devices */
+}
+
+  .file-name{
+    font-size: 14px;
+    text-align: left;
+    margin: 4px;
+  }
+  /* .bottom-section{
+    gap:10px;
+  } */
+
 }
 
 body {

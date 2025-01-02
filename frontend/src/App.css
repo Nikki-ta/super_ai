@@ -282,12 +282,14 @@ button.execute-button:hover {
 
 
 table {
-  width: 100%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow-x: auto; /* Enable horizontal scrolling for small screens */
-  display: block; /* Allow the table to be scrollable */
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px #0000001a;
+    display: block;
+    margin: 20px auto;
+    overflow-x: auto;
+    width: 110%;
+    margin-top: 40px;
+    margin-left: -11px;
 }
 
 th, td {
